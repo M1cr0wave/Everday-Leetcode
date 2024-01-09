@@ -3,7 +3,7 @@
 Welcome to the LeetCode Solutions repository! Here, you'll find a collection of solutions to various LeetCode problems, each designed to enhance your problem-solving skills and coding proficiency.
 
 ## Access Solutions
-All solutions and explanations are hosted on our Notion page. Explore them by following this link: [LeetCode Solutions on Notion](https://leetcode-.notion.site/Jan-1st-53c8f7e50cea488c96ec43e29040cc3f).
+All solutions and explanations are hosted on this Notion page. Explore them by following this link: [LeetCode Solutions on Notion](https://leetcode-.notion.site/Jan-1st-53c8f7e50cea488c96ec43e29040cc3f).
 
 Feel free to navigate through the content, which includes concise explanations, optimal solutions, and coding examples for a better understanding of problem-solving techniques.
 
