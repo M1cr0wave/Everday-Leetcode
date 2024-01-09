@@ -1,0 +1,88 @@
+# Mastering LeetCode: A Journey in Problem Solving
+
+## Introduction
+Welcome to the world of LeetCode, where coding challenges become opportunities to enhance your problem-solving skills. In this series, we'll unravel the intricacies of various problems, starting with the classic "Two Sum." Let's delve into the thought process behind tackling these challenges and explore optimal solutions.
+
+## Problem Overview - Two Sum
+*Difficulty: Easy*
+
+Given an array of integers `nums` and an integer `target`, your task is to find two numbers in the array that add up to the target. Return the indices of these two numbers, ensuring that each input has exactly one solution, and the same element cannot be used twice.
+
+## Approach - Efficient Hash Table
+### Intuition
+The Two Sum problem revolves around identifying pairs of numbers that yield the target sum. To achieve this efficiently, we'll employ a hash table, ensuring a time complexity less than O(n^2).
+
+### Algorithm
+1. Create an empty hash table to store elements and their indices.
+2. Iterate through the array from left to right.
+3. For each element `nums[i]`, calculate the complement by subtracting it from the target: `complement = target - nums[i]`.
+4. Check if the complement exists in the hash table. If found, we have a valid pair.
+5. If not, add the current element `nums[i]` to the hash table with its index as the value.
+6. Repeat steps 3-5 until a solution is found or the array is exhausted.
+7. If no solution is found, return an empty array or an appropriate indicator.
+
+## Code - Optimal Solutions
+### Solution 1: (Brute Force)
+```cpp
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+        int n = nums.size();
+        for (int i = 0; i < n - 1; i++) {
+            for (int j = i + 1; j < n; j++) {
+                if (nums[i] + nums[j] == target) {
+                    return {i, j};
+                }
+            }
+        }
+        return {}; // No solution found
+    }
+};
+```
+### Solution 2: (Two-pass Hash Table)
+```cpp
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+        unordered_map<int, int> numMap;
+        int n = nums.size();
+
+        // Build the hash table
+        for (int i = 0; i < n; i++) {
+            numMap[nums[i]] = i;
+        }
+
+        // Find the complement
+        for (int i = 0; i < n; i++) {
+            int complement = target - nums[i];
+            if (numMap.count(complement) && numMap[complement] != i) {
+                return {i, numMap[complement]};
+            }
+        }
+
+        return {}; // No solution found
+    }
+};
+```
+### Solution 3: (One-pass Hash Table)
+```cpp
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+        unordered_map<int, int> numMap;
+        int n = nums.size();
+
+        for (int i = 0; i < n; i++) {
+            int complement = target - nums[i];
+            if (numMap.count(complement)) {
+                return {numMap[complement], i};
+            }
+            numMap[nums[i]] = i;
+        }
+
+        return {}; // No solution found
+    }
+};
+```
+### Conclusion
+Embark on your LeetCode journey by mastering fundamental problems like "Two Sum." Stay tuned for more challenges, and remember to share if you find these solutions helpful. Happy coding!
